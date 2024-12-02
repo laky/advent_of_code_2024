@@ -1,5 +1,5 @@
-"""
-Prompt 1: 
+'''
+-- Prompt 1: 
 Solve the below algorithmic problem using Python. Include the code to process the input from a text file.
 
 You haven't even left yet and the group of Elvish Senior Historians has already hit a problem: their list of locations to check is currently empty. Eventually, someone decides that the best place to check first would be the Chief Historian's office.
@@ -34,7 +34,32 @@ To find the total distance between the left list and the right list, add up the 
 
 Your actual left and right lists contain many location IDs. What is the total distance between your lists?
 
-Prompt 2:
+-- Code in the answer:
+def calculate_total_distance(file_path):
+    left_list = []
+    right_list = []
+
+    # Reading input from the file
+    with open(file_path, 'r') as file:
+        for line in file:
+            left, right = map(int, line.split())
+            left_list.append(left)
+            right_list.append(right)
+
+    # Sorting both lists
+    left_list.sort()
+    right_list.sort()
+
+    # Calculating the total distance
+    total_distance = sum(abs(l - r) for l, r in zip(left_list, right_list))
+    return total_distance
+
+# Example usage
+input_file = 'input.txt'  # Replace with the actual file path
+total_distance = calculate_total_distance(input_file)
+print(f"Total Distance: {total_distance}")
+
+-- Prompt 2:
 That's correct! Now add to the original file a function to print a solution to a second problem below. Your python code should output both answers.
 
 Your analysis only confirmed what everyone feared: the two lists of location IDs are indeed very different.
@@ -64,9 +89,7 @@ The last number, 3, appears in the right list three times; the similarity score 
 So, for these example lists, the similarity score at the end of this process is 31 (9 + 4 + 0 + 0 + 9 + 9).
 
 Once again consider your left and right lists. What is their similarity score?
-"""
-
-
+'''
 
 from collections import Counter
 

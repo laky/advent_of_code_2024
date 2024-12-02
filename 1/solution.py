@@ -7,7 +7,6 @@ def parse_1(filename):
         second_list = list(map(int, nums[1::2]))
         return first_list, second_list
 
-
 def solve_1(input):    
     return sum(map(lambda a, b: abs(a-b), sorted(input[0]), sorted(input[1])))
 
